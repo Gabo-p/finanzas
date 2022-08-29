@@ -1,4 +1,5 @@
 import 'package:finanzas_personales/utils/preferencias.dart';
+import 'package:finanzas_personales/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,16 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String initialRoute = '/login';
+
+
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Finanzas Personales',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(''),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      initialRoute: initialRoute,
+      // initialRoute: '/prospecto',
+      getPages: routes,
     );
   }
 }
