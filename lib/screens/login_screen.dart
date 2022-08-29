@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:finanzas_personales/controllers/login_controller.dart';
 import 'package:finanzas_personales/utils/colors.dart';
 import 'package:finanzas_personales/utils/inputs.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +9,17 @@ import 'package:get/get.dart';
 class LoginBinding implements Bindings {
   @override
   void dependencies() {
+    Get.put(LoginController());
   }
 }
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -39,6 +42,18 @@ class LoginScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: CustomColors.colorRojo.withAlpha(30)
+                ),
+                width: Get.width,
+                height: Get.width,
+              ),
+            ),
+            Positioned(
+              bottom: Get.width - (Get.width + (Get.width * 0.3)),
+              right: -100,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.green.withAlpha(10)
                 ),
                 width: Get.width,
                 height: Get.width,
@@ -94,10 +109,10 @@ class LoginScreen extends StatelessWidget {
                       hint: 'Ingresa tu correo', 
                       content: '', 
                       tipo: TextInputType.text, 
-                      verificado: false.obs, 
-                      error: false.obs, 
+                      verificado: controller.emailValid, 
+                      error: controller.emailError, 
                       textoOculto: false, 
-                      onChange: (String valor){}, 
+                      onChange: controller.verificarCorreo, 
                       color: CustomColors.colorPrincipal,
                       icon: Icons.email_outlined
                     ),
@@ -109,12 +124,22 @@ class LoginScreen extends StatelessWidget {
                       hint: 'Ingresa tu contraseña', 
                       content: '', 
                       tipo: TextInputType.text, 
-                      verificado: false.obs, 
-                      error: false.obs, 
+                      verificado: controller.passValid, 
+                      error: controller.passError, 
                       textoOculto: true, 
-                      onChange: (String valor){}, 
+                      onChange: controller.verificarPass, 
                       color: CustomColors.colorPrincipal,
                       icon: Icons.lock_outline_rounded
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Text('¿Olvidaste la contraseña?', textAlign: TextAlign.center, style: TextStyle(color: Colors.black87, fontSize: 15),),
+                        SizedBox(width: 20,)
+                      ],
                     ),
                     const SizedBox(
                       height: 40,
@@ -124,7 +149,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: (){
-                            Get.toNamed('/navigation');
+                            controller.doLogin();
                           },
                           child: Container(
                             width: Get.width * 0.7,
@@ -137,7 +162,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
+                    ),
+
 
 
 

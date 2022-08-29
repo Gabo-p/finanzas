@@ -127,6 +127,16 @@ class DashboardPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.white,
                     ),
+                    child: Row(
+                      children: [
+                        
+                        Column(
+                          children: const [
+
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                   Container(
                     width: Get.width * 0.45,
