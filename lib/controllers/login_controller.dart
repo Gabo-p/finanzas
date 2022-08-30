@@ -1,4 +1,5 @@
 
+import 'package:finanzas_personales/utils/preferencias.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -11,6 +12,8 @@ class LoginController extends GetxController {
 
   Rx<bool> emailError  = false.obs; 
   Rx<bool> passError   = false.obs; 
+
+  final Preferencias _prefs = Preferencias();
 
 
   void verificarCorreo(String email){
@@ -46,6 +49,7 @@ class LoginController extends GetxController {
     if(emailValid.value && passValid.value){
       if(email.value == 'correo@correo.com'){
         if(pass.value == 'admin'){
+          _prefs.token = 'login';
           Get.offAllNamed('/navigation');
         }else{
           passValid.value = false;

@@ -15,8 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Preferencias _prefs = Preferencias();
     String initialRoute = '/login';
-
+    if(_prefs.token != ''){
+      String initialRoute = '/navigation';
+    }
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

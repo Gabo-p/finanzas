@@ -29,13 +29,6 @@ class Preferencias {
   String get correo => _prefs.getString('correo') ?? '';
   set correo( String value ) => _prefs.setString('correo', value);
 
-  String get direccion => _prefs.getString('direccion') ?? '';
-  set direccion( String value ) => _prefs.setString('direccion', value);
-  
-  int get telefono => _prefs.getInt('telefono') ?? 00000000;
-  set telefono( int value ) => _prefs.setInt('telefono', value);
-  
-
 
 
   // ? Gastos y Entradas //////////////////////////////////////////
@@ -47,6 +40,10 @@ class Preferencias {
   set entradas( String value ) => _prefs.setString('entradas', value);
 
 
+  // ? Cuentas //////////////////////////////////////////
+
+  String get cuentas => _prefs.getString('cuentas') ?? '';
+  set cuentas( String value ) => _prefs.setString('cuentas', value);
 
 
 
@@ -73,21 +70,11 @@ class Preferencias {
 
   String get port => _prefs.getString('port') ?? ':3200';
   set port( String value ) => _prefs.setString('port', value);
-  
-  String get enviroment => _prefs.getString('enviroment') ?? 'local';
-  set enviroment( String value ) => _prefs.setString('enviroment', value);
-
-  bool get onboarding => _prefs.getBool('onboarding') ?? true;
-  set onboarding( bool value ) => _prefs.setBool('onboarding', value);
 
 
 
   clean(){
-    _prefs.remove('token');
-    _prefs.remove('nombre');
-    _prefs.remove('correo');
-    _prefs.remove('telefono');
-    _prefs.setBool('onboarding', false);
+
   }
 
 }
