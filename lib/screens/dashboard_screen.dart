@@ -19,7 +19,7 @@ class DashboardPage extends StatelessWidget {
       primary: false,
       children: [
         const SizedBox(
-          height: 40,
+          height: 30,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -85,7 +85,7 @@ class DashboardPage extends StatelessWidget {
               MovimientoCard(
                 fecha: '05/07/2020', 
                 descripcion: 'Gastos varios en casa', 
-                monto: '150',
+                monto: '- 150',
                 gasto: true, 
               ),
               
@@ -95,6 +95,55 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
 
+
+
+
+        
+        
+        
+        
+        
+        const SizedBox(
+          height: 25,
+        ),
+        Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Text('Dinero total Actual', style: TextStyle(color: Colors.grey[800], fontSize: 15, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Row(
+          children: const [
+            SizedBox(
+              width: 20,
+            ),
+            Text('L. 8,500.00', style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Icon(Icons.calendar_today, size: 20, color: Colors.grey[500],),
+            const SizedBox(
+              width: 6,
+            ),
+            Text('01 sep - 30 sep', style: TextStyle(color: Colors.grey[500], fontSize: 14, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const GraficaLineal(),
 
 
 
@@ -151,40 +200,6 @@ class DashboardPage extends StatelessWidget {
             ],
           ),
         ),
-        
-        
-        
-        
-        const SizedBox(
-          height: 35,
-        ),
-        Row(
-          children: [
-            const SizedBox(
-              width: 20,
-            ),
-            Text('Graficas', style: TextStyle(color: Colors.grey[800], fontSize: 15, fontWeight: FontWeight.bold),)
-          ],
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text('Anual', style: TextStyle(color: Colors.grey[500], fontSize: 17),),
-            const SizedBox(width: 20,),
-            Text('Mensual', style: TextStyle(color: Colors.grey[500], fontSize: 17),)
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            GraficaLineal(),
-            GraficaLineal(),
-          ],
-        ),
-
 
 
 

@@ -63,5 +63,11 @@ class LoginController extends GetxController {
   }
 
 
+  void logout(){
+    _prefs.token = '';
+    Get.offAndToNamed('/login');
+  }
+
+
 
 }

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     final Preferencias _prefs = Preferencias();
     String initialRoute = '/login';
     if(_prefs.token != ''){
-      String initialRoute = '/navigation';
+      initialRoute = '/navigation';
     }
 
     return GetMaterialApp(
