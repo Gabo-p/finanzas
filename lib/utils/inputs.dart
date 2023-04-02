@@ -12,6 +12,7 @@ class CrearInput extends StatelessWidget {
     required this.verificado, 
     required this.error, 
     required this.textoOculto, 
+    required this.errorText, 
     required this.onChange, required this.color, required this.icon
   }) : super(key: key);
 
@@ -24,6 +25,7 @@ class CrearInput extends StatelessWidget {
   final Rx<bool> verificado;
   final Rx<bool> error;
   final bool textoOculto;
+  final String errorText;
   final Function onChange;
 
   @override
@@ -59,7 +61,7 @@ class CrearInput extends StatelessWidget {
                     ),
                     Container(
                       padding: const EdgeInsets.only(left: 15.0),
-                      width: Get.width * 0.75,
+                      width: Get.width * 0.70,
                       height: 30,
                       child: TextFormField(
                         onChanged: (value){
@@ -87,6 +89,13 @@ class CrearInput extends StatelessWidget {
                         child: const Icon(Icons.check, color: Colors.white, size:  17,)),
                     ),
                     Visibility(
+                      visible: verificado.value || error.value ? false : true,
+                      child: const SizedBox(
+                        width: 25,
+                        height: 25,
+                      ),
+                    ),
+                    Visibility(
                       visible: error.value,
                       child: Icon(Icons.error_outlined, color: Colors.red[600],),
                     ),
@@ -94,7 +103,16 @@ class CrearInput extends StatelessWidget {
                 ),
               ),
             ]
-          )
+          ),
+          Visibility(
+            visible: error.value,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(errorText, style: const TextStyle(fontSize: 14, color: Colors.red),),  
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -55,6 +55,38 @@ class DashboardPage extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
+        
+
+
+
+
+        
+        
+        
+        
+        
+        Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Text('Dinero total Actual', style: TextStyle(color: Colors.grey[800], fontSize: 15, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Row(
+          children: const [
+            SizedBox(
+              width: 20,
+            ),
+            Text('L. 8,500.00', style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        const SizedBox(
+          height: 25,
+        ),
         Row(
           children: [
             const SizedBox(
@@ -93,37 +125,6 @@ class DashboardPage extends StatelessWidget {
 
             ],
           ),
-        ),
-
-
-
-
-        
-        
-        
-        
-        
-        const SizedBox(
-          height: 25,
-        ),
-        Row(
-          children: [
-            const SizedBox(
-              width: 20,
-            ),
-            Text('Dinero total Actual', style: TextStyle(color: Colors.grey[800], fontSize: 15, fontWeight: FontWeight.bold),)
-          ],
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Row(
-          children: const [
-            SizedBox(
-              width: 20,
-            ),
-            Text('L. 8,500.00', style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),)
-          ],
         ),
         const SizedBox(
           height: 15,

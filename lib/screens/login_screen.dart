@@ -74,6 +74,7 @@ class LoginScreen extends GetView<LoginController> {
                 width: Get.width,
                 height: Get.height,
                 child: ListView(
+                  primary: false,
                   children: [
 
 
@@ -114,7 +115,8 @@ class LoginScreen extends GetView<LoginController> {
                       textoOculto: false, 
                       onChange: controller.verificarCorreo, 
                       color: CustomColors.colorPrincipal,
-                      icon: Icons.email_outlined
+                      icon: Icons.email_outlined,
+                      errorText: 'No existe ningun usuario con ese correo.',
                     ),
                     const SizedBox(
                       height: 20,
@@ -129,7 +131,8 @@ class LoginScreen extends GetView<LoginController> {
                       textoOculto: true, 
                       onChange: controller.verificarPass, 
                       color: CustomColors.colorPrincipal,
-                      icon: Icons.lock_outline_rounded
+                      icon: Icons.lock_outline_rounded,
+                      errorText: 'La contraseña no coincide.',
                     ),
                     const SizedBox(
                       height: 10,
